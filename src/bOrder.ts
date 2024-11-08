@@ -2,14 +2,19 @@ import { composeParams } from "./libs/auth.js"
 import { doFetch } from "./libs/utils.js"
 import { vendors } from "./dicts.js"
 
+const urls = {
+  production: 'https://poll.kuaidi100.com/order/borderapi.do',
+  sandbox: 'https://api.kuaidi100.com/apiMock/border'
+}
+
 export const questPrice = async (vendor: string) => {
-  const paramValue = `{"sendManPrintAddr":"山东省威海市乳山市","recManPrintAddr":"辽宁省沈阳市沈北新区","weight":"1","kuaidiCom":"${vendor}"}`
+  const paramValue = `{"sendManPrintAddr":"广西北海市海城区","recManPrintAddr":"山东省威海市乳山市","weight":"5","kuaidiCom":"${vendor}"}`
 
   const params = composeParams(paramValue)
   params.set('param', paramValue)
   params.set('method', 'price')
 
-  const url = new URL('https://poll.kuaidi100.com/order/borderapi.do')
+  const url = new URL(urls.production)
   url.search = params.toString()
 
   const result = await doFetch(url)
