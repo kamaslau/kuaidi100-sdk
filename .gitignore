@@ -9,6 +9,7 @@ node_modules
 # See dotenv.org
 .env*.local
 .env*
+!.env.sample
 
 # This project
 dist/*

@@ -1,0 +1,43 @@
+{
+  "name": "kuaidi100-sdk",
+  "version": "0.1.0",
+  "author": "Lau, Kamas <kamaslau@dingtalk.com> (https://www.kamaslau.com/)",
+  "license": "MIT",
+  "description": "",
+  "keywords": [
+    "kuaidi100",
+    "快递100"
+  ],
+  "engines": {
+    "node": "^22",
+    "pnpm": "^9"
+  },
+  "type": "module",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "NODE_ENV=production node .",
+    "start:dev": "cross-env nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamaslau/kuaidi100-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kamaslau/kuaidi100-sdk/issues"
+  },
+  "homepage": "https://github.com/kamaslau/kuaidi100-sdk#readme",
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/koa": "^2.15.0",
+    "@types/node": "^22.9.0",
+    "tsimp": "^2.0.12",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "koa": "^2.15.3"
+  }
+}
