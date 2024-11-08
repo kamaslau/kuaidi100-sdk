@@ -2,7 +2,7 @@ import { createHash } from "node:crypto"
 
 export const composeSign = (params: string, time: string) => {
   const rawString = params + time + `${process.env.KEY}${process.env.SECRET}`
-  console.log('rawString: ', rawString)
+  // console.log('rawString: ', rawString)
 
   // MD5
   const sign = createHash('md5').update(rawString).digest('hex').toUpperCase()
