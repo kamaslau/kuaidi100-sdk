@@ -1,7 +1,7 @@
 import Koa from "koa"
-import { verifyDotenv } from "./libs/init.js"
+import { tryDotenv } from "./libs/init.js"
 
-verifyDotenv()
+tryDotenv()
 
 const app = new Koa()
 

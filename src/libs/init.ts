@@ -1,5 +1,21 @@
 import 'dotenv/config'
 
-export const verifyDotenv = () => {
-  if (Number(process.env.PORT?.length) > 0) { console.log('dotenv loaded') } else { throw Error("dotenv not loaded") }
+export const tryDotenv = () => {
+  if (Number(process.env.PORT?.length) === 0) {
+    throw Error("dotenv not loaded")
+
+  } else {
+    console.log('dotenv loaded')
+
+    if (process.env.NODE_ENV !== 'production') {
+      const watchList = ['KEY', 'SECRET']
+
+      console.table(
+        watchList.map(item => {
+          return { key: item, value: process.env[item] }
+        })
+      )
+    }
+  }
+
 }
