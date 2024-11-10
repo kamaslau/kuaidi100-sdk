@@ -10,9 +10,9 @@ const urls = {
 export const questPrice = async (vendor: string) => {
   if (!vendors.some(item => item.value === vendor)) throw Error('not valid vendor')
 
-  const paramValue = `{"sendManPrintAddr":"广西北海市海城区","recManPrintAddr":"山东省威海市乳山市","weight":"5","kuaidiCom":"${vendor}"}`
+  const paramValue = `{"sendManPrintAddr":"山东省威海市乳山市","recManPrintAddr":"北京北京市海淀区","weight":"1","kuaidiCom":"${vendor}"}`
 
-  const params = composeParams(paramValue)
+  const params: URLSearchParams = composeParams(paramValue)
   params.set('param', paramValue)
   params.set('method', 'price')
 

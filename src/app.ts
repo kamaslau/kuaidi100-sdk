@@ -24,7 +24,6 @@ app.use(async (ctx, next) => {
     }
 
   } catch (error) {
-
     ctx.status = 500
     ctx.body = { message: (error as Error)?.message }
   }
