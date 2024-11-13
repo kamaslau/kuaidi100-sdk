@@ -3,6 +3,7 @@ import { tryDotenv } from "./libs/init.js"
 import { auth } from "./libs/middleware.js"
 import { globalErrorHandler } from "./libs/utils.js"
 import { questPrice, questPriceBulk } from "./bOrder.js"
+import { router } from './routers.js'
 
 tryDotenv()
 
@@ -33,5 +34,8 @@ app.use(async (ctx, next) => {
     return
   }
 })
+
+app.use(router.routes())
+app.use(router.allowedMethods())
 
 app.listen(process.env.PORT ?? 3333)
