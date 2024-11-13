@@ -3,6 +3,9 @@ import { questPrice, questPriceBulk } from "../bOrder.js"
 
 export const router: Router = new Router()
 
+export const name = 'bOrder'
+export const path = `/${name}`
+
 router.get('/questPrice', async (ctx) => {
   try {
     const vendor = ctx.query.vendor?.toString() ?? 'jtexpress' // Use jtexpress as example
