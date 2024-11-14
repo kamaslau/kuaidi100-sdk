@@ -7,7 +7,15 @@ export const name = 'bOrder'
 export const path = `/${name}`
 
 router.get('/price', async (ctx) => {
-  const input = ''
+  // console.log('/price', ctx.query)
+
+  if (typeof ctx.query.param === 'undefined') {
+    ctx.status = 422
+    ctx.body = { message: '参数错误' }
+
+    return
+  }
+  const input = ctx.query.param as string
 
   try {
     const result = await price(input)
@@ -19,7 +27,15 @@ router.get('/price', async (ctx) => {
 })
 
 router.get('/priceBulk', async (ctx) => {
-  const input = ''
+  // console.log('/priceBulk', ctx.query)
+
+  if (typeof ctx.query.param === 'undefined') {
+    ctx.status = 422
+    ctx.body = { message: '参数错误' }
+
+    return
+  }
+  const input = ctx.query.param as string
 
   try {
     const result = await priceBulk(input)
@@ -32,7 +48,15 @@ router.get('/priceBulk', async (ctx) => {
 })
 
 router.get('/bOrder', async (ctx) => {
-  const input = ''
+  // console.log('/bOrder', ctx.query)
+
+  if (typeof ctx.query.param === 'undefined') {
+    ctx.status = 422
+    ctx.body = { message: '参数错误' }
+
+    return
+  }
+  const input = ctx.query.param as string
 
   try {
     const result = await bOrder(input)
