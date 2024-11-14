@@ -16,7 +16,7 @@ router.get('/', async (ctx) => {
 // router.use('/bOrder', bOrderRouter.routes(), bOrderRouter.allowedMethods())
 
 export const loadRouters = async () => {
-  console.log(fileDirPath)
+  // console.log('fileDirPath', fileDirPath)
 
   let fileList: string[]
   try {
