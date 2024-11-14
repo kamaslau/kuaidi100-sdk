@@ -1,5 +1,4 @@
 export const vendors = [
-  { name: '极兔兔', value: 'jtt' }, // test ONLY
   { name: '极兔', value: 'jtexpress' },
   { name: '圆通', value: 'yuantong' },
   { name: '申通', value: 'shentong' },
