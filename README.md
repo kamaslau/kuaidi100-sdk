@@ -1,6 +1,10 @@
 # kuaidi100-sdk
 
-快递 100
+[快递 100API 开放平台](https://api.kuaidi100.com)
+
+- [企业管理后台](https://api.kuaidi100.com/manager/)
+- [文档中心](https://api.kuaidi100.com/document/)
+- [调试工具](https://api.kuaidi100.com/debug-tool/)
 
 ## Usage
 
