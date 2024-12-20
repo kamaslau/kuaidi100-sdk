@@ -42,5 +42,5 @@
     "dotenv": "^16.4.7",
     "koa": "^2.15.3"
   },
-  "packageManager": "pnpm@9.15.0"
+  "packageManager": "pnpm@9.15.1"
 }
