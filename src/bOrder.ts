@@ -29,7 +29,7 @@ const paramSample = {
   },
 }
 
-// http://localhost:3000/bOrder/price?token=IZ2TzmqyIT&param={%22kuaidiCom%22:%22yuantong%22,%22sendManPrintAddr%22:%22%E5%B1%B1%E4%B8%9C%E7%9C%81%E5%A8%81%E6%B5%B7%E5%B8%82%E4%B9%B3%E5%B1%B1%E5%B8%82%22,%22recManPrintAddr%22:%22%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC%E5%B8%82%E6%B5%B7%E6%B7%80%E5%8C%BA%22}
+// http://localhost:3000/bOrder/price?token=your_token&param={%22kuaidiCom%22:%22yuantong%22,%22sendManPrintAddr%22:%22%E5%B1%B1%E4%B8%9C%E7%9C%81%E5%A8%81%E6%B5%B7%E5%B8%82%E4%B9%B3%E5%B1%B1%E5%B8%82%22,%22recManPrintAddr%22:%22%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC%E5%B8%82%E6%B5%B7%E6%B7%80%E5%8C%BA%22}
 export const price = async (input: string = '') => {
   // if (!vendors.some(item => item.value === vendor)) throw Error('not valid vendor')
 
@@ -48,6 +48,7 @@ export const price = async (input: string = '') => {
 }
 
 // TODO improve efficiency
+// http://localhost:3000/bOrder/priceBulk?token=your_token&param={%22kuaidiCom%22:%22yuantong%22,%22sendManPrintAddr%22:%22%E5%B1%B1%E4%B8%9C%E7%9C%81%E5%A8%81%E6%B5%B7%E5%B8%82%E4%B9%B3%E5%B1%B1%E5%B8%82%22,%22recManPrintAddr%22:%22%E5%8C%97%E4%BA%AC%E5%8C%97%E4%BA%AC%E5%B8%82%E6%B5%B7%E6%B7%80%E5%8C%BA%22}
 export const priceBulk = async (input: string = '') => {
   // console.log('priceBulk: ', input)
 
