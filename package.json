@@ -40,6 +40,5 @@
     "@koa/router": "^13.1.0",
     "dotenv": "^16.4.7",
     "koa": "^2.15.4"
-  },
-  "packageManager": "pnpm@10.4.1"
+  }
 }
