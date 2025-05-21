@@ -1,40 +1,34 @@
 import Router from '@koa/router'
-import fs from 'node:fs'
-import path from "node:path"
-import { fileURLToPath } from "node:url"
+import { readdir } from 'node:fs/promises'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-export const fileDirPath = path.dirname(fileURLToPath(import.meta.url))
+export const router = new Router()
 
-export const router: Router = new Router()
-
-router.get('/', async (ctx) => {
+router.get('/', (ctx) => {
   ctx.body = { message: 'No action for home page' }
 })
 
-// DEPRECATED
-// import { router as bOrderRouter } from "./bOrder.js"
-// router.use('/bOrder', bOrderRouter.routes(), bOrderRouter.allowedMethods())
+export const loadRouters = async (): Promise<void> => {
+  const fileDirPath = dirname(fileURLToPath(import.meta.url))
 
-export const loadRouters = async () => {
-  // console.log('fileDirPath', fileDirPath)
-
-  let fileList: string[]
   try {
-    const dirFiles = fs.readdirSync(fileDirPath)
-    // files.forEach(item => console.log(item))
-    fileList = dirFiles.filter(item => !item.startsWith('index.')) // exclude current file (gateway)
-    // console.log('fileList: ', fileList)
+    const dirFiles = await readdir(fileDirPath)
 
+    const routerLoadPromises = dirFiles.reduce<Promise<void>[]>((promises, file) => {
+      if (!file.startsWith('index.')) {
+        promises.push((async () => {
+          const filePath = `file://${resolve(join(fileDirPath, file))}`
+          const { path: routePath, router: childRouter } = await import(filePath)
+          router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
+        })())
+      }
+      return promises
+    }, [])
+
+    await Promise.all(routerLoadPromises)
   } catch (error) {
-    console.error(error)
+    console.error('Failed to load routers: ', error)
     throw error
-  }
-
-  // Import each router file and load child router to root router
-  for (let i = 0; i < fileList.length; i++) {
-    const filePath = `file://${path.resolve(path.join(fileDirPath, fileList[i]))}`
-    const childRouter = await import(filePath)
-
-    router.use(childRouter.path, childRouter.router.routes(), childRouter.router.allowedMethods())
   }
 }
