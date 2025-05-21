@@ -11,20 +11,23 @@ router.get('/', (ctx) => {
 
 export const loadRouters = async (): Promise<void> => {
   const fileDirPath = dirname(fileURLToPath(import.meta.url))
+  const basePath = `file://${resolve(fileDirPath)}`
 
   try {
     const dirFiles = await readdir(fileDirPath)
+    const routerLoadPromises: Promise<void>[] = []
 
-    const routerLoadPromises = dirFiles.reduce<Promise<void>[]>((promises, file) => {
-      if (!file.startsWith('index.')) {
-        promises.push((async () => {
-          const filePath = `file://${resolve(join(fileDirPath, file))}`
+    for (const file of dirFiles) {
+      if (file.startsWith('index.')) continue
+
+      routerLoadPromises.push(
+        (async () => {
+          const filePath = `${basePath}/${file}`
           const { path: routePath, router: childRouter } = await import(filePath)
           router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
-        })())
-      }
-      return promises
-    }, [])
+        })()
+      )
+    }
 
     await Promise.all(routerLoadPromises)
   } catch (error) {
