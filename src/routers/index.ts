@@ -16,6 +16,11 @@ type RouterModule = {
   router: Router
 }
 
+const loadRouterModule = async (filePath: string): Promise<void> => {
+  const { path: routePath, router: childRouter } = await import(filePath) as RouterModule
+  router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
+}
+
 export const loadRouters = async (): Promise<void> => {
   const fileDirPath = dirname(fileURLToPath(import.meta.url))
   const basePath = `file://${resolve(fileDirPath)}`
@@ -26,14 +31,7 @@ export const loadRouters = async (): Promise<void> => {
 
     for (const file of dirFiles) {
       if (file.startsWith('index.')) continue
-
-      routerLoadPromises.push(
-        (async () => {
-          const filePath = `${basePath}/${file}`
-          const { path: routePath, router: childRouter } = await import(filePath) as RouterModule
-          router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
-        })()
-      )
+      routerLoadPromises.push(loadRouterModule(`${basePath}/${file}`))
     }
 
     await Promise.all(routerLoadPromises)
