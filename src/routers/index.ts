@@ -1,13 +1,20 @@
+import type { Context } from 'koa'
 import Router from '@koa/router'
 import { readdir } from 'node:fs/promises'
-import { dirname, join, resolve } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 export const router = new Router()
 
-router.get('/', (ctx) => {
+// Root path
+router.get('/', (ctx: Context) => {
   ctx.body = { message: 'No action for home page' }
 })
+
+type RouterModule = {
+  path: string
+  router: Router
+}
 
 export const loadRouters = async (): Promise<void> => {
   const fileDirPath = dirname(fileURLToPath(import.meta.url))
@@ -23,7 +30,7 @@ export const loadRouters = async (): Promise<void> => {
       routerLoadPromises.push(
         (async () => {
           const filePath = `${basePath}/${file}`
-          const { path: routePath, router: childRouter } = await import(filePath)
+          const { path: routePath, router: childRouter } = await import(filePath) as RouterModule
           router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
         })()
       )
@@ -31,7 +38,8 @@ export const loadRouters = async (): Promise<void> => {
 
     await Promise.all(routerLoadPromises)
   } catch (error) {
-    console.error('Failed to load routers: ', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    console.error('Failed to load routers:', errorMessage)
     throw error
   }
 }
