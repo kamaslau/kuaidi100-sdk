@@ -17,8 +17,18 @@ type RouterModule = {
 }
 
 const loadRouterModule = async (filePath: string): Promise<void> => {
-  const { path: routePath, router: childRouter } = await import(filePath) as RouterModule
-  router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
+  try {
+    const { path: routePath, router: childRouter } = await import(filePath) as RouterModule
+    if (!routePath || !childRouter) {
+      throw new Error(`Invalid router module: ${filePath}`)
+    }
+    router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to load router module ${filePath}: ${error.message}`)
+    }
+    throw error
+  }
 }
 
 export const loadRouters = async (): Promise<void> => {
