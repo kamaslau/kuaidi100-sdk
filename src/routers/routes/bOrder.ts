@@ -2,10 +2,9 @@ import type { Context } from 'koa'
 import Router from '@koa/router'
 import { price, priceBulk, bOrder } from "../../handlers/bOrder.js"
 
-export const router: Router = new Router()
-
 const name = 'bOrder'
 export const path = `/${name}`
+export const router: Router = new Router()
 
 interface ErrorResponse {
   message: string;

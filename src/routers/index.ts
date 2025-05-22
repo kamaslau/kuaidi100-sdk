@@ -11,7 +11,7 @@ router.get('/', (ctx: Context) => {
   ctx.body = { message: 'No action for home page' }
 })
 
-type RouterModule = {
+interface RouterModule {
   path: string
   router: Router
 }
@@ -23,6 +23,7 @@ const loadRouterModule = async (filePath: string): Promise<void> => {
       throw new Error(`Invalid router module: ${filePath}`)
     }
     router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
+    console.log(`Successfully loaded routes: ${routePath}`)
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(`Failed to load router module ${filePath}: ${error.message}`)
