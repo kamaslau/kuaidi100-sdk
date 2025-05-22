@@ -1,6 +1,6 @@
-import { composeParams } from "./libs/auth.js"
-import { doFetch } from "./libs/utils.js"
-import { vendors } from "./dicts.js"
+import { composeParams } from "../libs/auth.js"
+import { doFetch } from "../libs/utils.js"
+import { vendors } from "../dicts.js"
 
 const urls = {
   production: 'https://poll.kuaidi100.com/order/borderapi.do',
