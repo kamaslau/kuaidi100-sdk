@@ -1,7 +1,7 @@
 import type { Context } from 'koa'
 import Router from '@koa/router'
 import { readdir } from 'node:fs/promises'
-import { dirname, resolve } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 export const router = new Router()
@@ -32,18 +32,21 @@ const loadRouterModule = async (filePath: string): Promise<void> => {
 }
 
 export const loadRouters = async (): Promise<void> => {
-  const fileDirPath = dirname(fileURLToPath(import.meta.url))
-  const basePath = `file://${resolve(fileDirPath)}`
+  const currentDir = dirname(fileURLToPath(import.meta.url))
+  const routesDir = join(currentDir, 'routes')
+  const routesfileDirPath = `file://${resolve(routesDir)}`
 
   try {
-    const dirFiles = await readdir(fileDirPath)
-    const routerLoadPromises: Promise<void>[] = []
-
-    for (const file of dirFiles) {
-      if (file.startsWith('index.')) continue
-      routerLoadPromises.push(loadRouterModule(`${basePath}/${file}`))
+    const dirFiles = await readdir(routesDir)
+    if (!Array.isArray(dirFiles) || dirFiles.length === 0) {
+      console.warn('No router files found in:', routesDir)
+      return
     }
 
+    const routerLoadPromises: Promise<void>[] = []
+    for (const file of dirFiles) {
+      routerLoadPromises.push(loadRouterModule(`${routesfileDirPath}/${file}`))
+    }
     await Promise.all(routerLoadPromises)
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error'
