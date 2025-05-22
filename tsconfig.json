@@ -2,6 +2,10 @@
   "extends": "@tsconfig/node22/tsconfig.json",
   "include": ["src/**/*", "types"],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "strict": true,
     "typeRoots": ["node_modules/@types", "types"],
     "rootDir": "src",
