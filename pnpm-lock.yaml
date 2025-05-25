@@ -11,9 +11,6 @@ importers:
       '@koa/router':
         specifier: ^13.1.0
         version: 13.1.0
-      dotenv:
-        specifier: ^16.5.0
-        version: 16.5.0
       koa:
         specifier: ^3.0.0
         version: 3.0.0
@@ -292,10 +289,6 @@ packages:
   diff-sequences@29.6.3:
     resolution: {integrity: sha512-EjePK1srD3P08o2j4f0ExnylqRs5B9tJjcp9t1krH2qRi8CCdsYfwe9JgSLurFBWwq4uOlipzfk5fHNvwFKr8Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-
-  dotenv@16.5.0:
-    resolution: {integrity: sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==}
-    engines: {node: '>=12'}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -980,8 +973,6 @@ snapshots:
   destroy@1.2.0: {}
 
   diff-sequences@29.6.3: {}
-
-  dotenv@16.5.0: {}
 
   eastasianwidth@0.2.0: {}
 

@@ -1,8 +1,6 @@
-import 'dotenv/config'
-
-export const tryDotenv = () => {
+export const tryDotEnv = () => {
   if (Number(process.env.PORT?.length) === 0) {
-    throw Error("dotenv not loaded")
+    throw Error(".env not loaded")
 
   }
 
