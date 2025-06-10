@@ -28,11 +28,11 @@
   "type": "module",
   "main": "dist/app.js",
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.2",
+    "@tsconfig/node24": "^24.0.1",
     "@types/jest": "^29.5.14",
     "@types/koa": "^2.15.0",
     "@types/koa__router": "^12.0.4",
-    "@types/node": "^22.15.21",
+    "@types/node": "^24.0.0",
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.10",
     "tsimp": "^2.0.12",
@@ -42,5 +42,5 @@
     "@koa/router": "^13.1.0",
     "koa": "^3.0.0"
   },
-  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
+  "packageManager": "pnpm@10.12.1"
 }
