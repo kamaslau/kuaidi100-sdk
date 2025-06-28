@@ -1,15 +1,14 @@
 # OS
 .DS_Store
 
-# Node.js
-.pnpm-debug.log
-node_modules
-
-# Dotenv confs
-# See dotenv.org
+# Env files
 .env*.local
 .env*
 !.env.sample
+
+# Packages
+node_modules
+.pnpm-debug.log
 
 # This project
 dist/*

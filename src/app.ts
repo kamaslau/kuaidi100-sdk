@@ -1,11 +1,9 @@
 import Koa from "koa"
-import { tryDotEnv } from "./libs/init.js"
 import { auth } from "./libs/middleware.js"
 import { globalErrorHandler } from "./libs/utils.js"
 import { router, loadRouters } from './routers/index.js'
 
 console.time('startUp')
-tryDotEnv()
 
 const app = new Koa()
 

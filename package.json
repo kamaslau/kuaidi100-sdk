@@ -12,7 +12,7 @@
     "build": "tsc",
     "start": "node --env-file=.env dist/app.js",
     "start:dev": "cross-env nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "@types/jest": "^29.5.14",
     "@types/koa": "^2.15.0",
     "@types/koa__router": "^12.0.4",
-    "@types/node": "^24.0.4",
+    "@types/node": "^24.0.7",
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.10",
     "tsimp": "^2.0.12",
@@ -42,5 +42,5 @@
     "@koa/router": "^13.1.0",
     "koa": "^3.0.0"
   },
-  "packageManager": "pnpm@10.12.3"
+  "packageManager": "pnpm@10.12.4"
 }
