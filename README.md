@@ -11,7 +11,7 @@
 创建并配置 _.env_ 文件
 
 ```bash
-cp .env.sample .env
+cp .env.example .env
 ```
 
 ```text
