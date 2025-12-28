@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@koa/router':
-        specifier: ^15.1.0
-        version: 15.1.0(koa@3.1.1)
+        specifier: ^15.1.1
+        version: 15.1.1(koa@3.1.1)
       koa:
         specifier: ^3.1.1
         version: 3.1.1
@@ -25,8 +25,8 @@ importers:
         specifier: ^12.0.5
         version: 12.0.5
       '@types/node':
-        specifier: ^25.0.2
-        version: 25.0.2
+        specifier: ^25.0.3
+        version: 25.0.3
       cross-env:
         specifier: ^10.1.0
         version: 10.1.0
@@ -55,8 +55,8 @@ packages:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
 
-  '@koa/router@15.1.0':
-    resolution: {integrity: sha512-0zCmuapmgBHrfVSFjBfCdgnkBnXwRGcG5qHnxVs8ZoTNEJiwSSspgJ5+2NugiqLJS/S0d96KMeNntLqTNWaioQ==}
+  '@koa/router@15.1.1':
+    resolution: {integrity: sha512-trYxL4VOx8r92f8luqpN83xkN0DMTsp/HBJIxoDZH/a2I1Hxvoe+jjjhyJRQUQIHmsNQjCM+Xj6nCqSvnDnlCw==}
     engines: {node: '>= 20'}
     peerDependencies:
       koa: ^2.0.0 || ^3.0.0
@@ -110,8 +110,8 @@ packages:
   '@types/mime@1.3.5':
     resolution: {integrity: sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==}
 
-  '@types/node@25.0.2':
-    resolution: {integrity: sha512-gWEkeiyYE4vqjON/+Obqcoeffmk0NF15WSBwSs7zwVA2bAbTaE0SJ7P0WNGoJn8uE7fiaV5a7dKYIJriEqOrmA==}
+  '@types/node@25.0.3':
+    resolution: {integrity: sha512-W609buLVRVmeW693xKfzHeIV6nJGGz98uCPfeXI1ELMLXVeKYZ9m15fAMSaUPBHYLGFsVRcMmSCksQOrZV9BYA==}
 
   '@types/qs@6.9.17':
     resolution: {integrity: sha512-rX4/bPcfmvxHDv0XjfJELTTr+iB+tn032nPILqHm5wbthUUUuVtNGGqzhya9XUxjTP8Fpr0qYgSZZKxGY++svQ==}
@@ -606,7 +606,7 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@koa/router@15.1.0(koa@3.1.1)':
+  '@koa/router@15.1.1(koa@3.1.1)':
     dependencies:
       debug: 4.4.3(supports-color@5.5.0)
       http-errors: 2.0.1
@@ -623,16 +623,16 @@ snapshots:
 
   '@types/accepts@1.3.7':
     dependencies:
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
 
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
 
   '@types/content-disposition@0.5.8': {}
 
@@ -641,11 +641,11 @@ snapshots:
       '@types/connect': 3.4.38
       '@types/express': 5.0.0
       '@types/keygrip': 1.0.6
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
 
   '@types/express-serve-static-core@5.0.1':
     dependencies:
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
       '@types/qs': 6.9.17
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -676,7 +676,7 @@ snapshots:
       '@types/http-errors': 2.0.4
       '@types/keygrip': 1.0.6
       '@types/koa-compose': 3.2.8
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
 
   '@types/koa__router@12.0.5':
     dependencies:
@@ -684,7 +684,7 @@ snapshots:
 
   '@types/mime@1.3.5': {}
 
-  '@types/node@25.0.2':
+  '@types/node@25.0.3':
     dependencies:
       undici-types: 7.16.0
 
@@ -695,12 +695,12 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
 
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 25.0.2
+      '@types/node': 25.0.3
       '@types/send': 0.17.4
 
   accepts@1.3.8:
