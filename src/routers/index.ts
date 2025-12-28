@@ -13,7 +13,7 @@ router.get('/', (ctx: Context) => {
 
 interface RouterModule {
   path: string
-  router: Router
+  router: InstanceType<typeof Router>
 }
 
 const loadRouterModule = async (filePath: string): Promise<void> => {
@@ -22,7 +22,7 @@ const loadRouterModule = async (filePath: string): Promise<void> => {
     if (!routePath || !childRouter) {
       throw new Error(`Invalid router module: ${filePath}`)
     }
-    router.use(routePath, childRouter.routes(), childRouter.allowedMethods())
+    router.use(routePath, childRouter.routes() as any, childRouter.allowedMethods() as any)
     console.log(`Successfully loaded routes: ${routePath}`)
   } catch (error) {
     if (error instanceof Error) {
