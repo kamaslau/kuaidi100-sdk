@@ -14,14 +14,6 @@
     "start:dev": "cross-env nodemon",
     "test": "node --test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kamaslau/kuaidi100-sdk.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kamaslau/kuaidi100-sdk/issues"
-  },
-  "homepage": "https://github.com/kamaslau/kuaidi100-sdk#readme",
   "engines": {
     "node": "^24 || >=22"
   },
@@ -38,7 +30,15 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@koa/router": "^15.1.1",
+    "@koa/router": "^15.2.0",
     "koa": "^3.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamaslau/kuaidi100-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kamaslau/kuaidi100-sdk/issues"
+  },
+  "homepage": "https://github.com/kamaslau/kuaidi100-sdk#readme"
 }
